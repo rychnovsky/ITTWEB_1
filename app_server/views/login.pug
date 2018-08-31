@@ -3,8 +3,8 @@ extends layout
 block content
   div.login_wrapper
     div.login_inner
-      h1= title
-      form(action="").form_login
+      h1.something= title
+      form(action="/").form_login
         div
           label(for="username") Username
           input(type="text", name="username", placeholder="Your name")#username
