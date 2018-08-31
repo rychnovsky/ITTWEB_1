@@ -4,7 +4,7 @@
 
 /* General styles */
 body {
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font: 14px 'Poppins', 'Lucida Grande', Helvetica, Arial, sans-serif;
   margin: 0; }
 
 /* Buttons */
@@ -18,8 +18,8 @@ body {
     transform: scale(1.05);
     cursor: pointer; }
   .button.button-primary {
-    background: #00b7ff;
-    color: white; }
+    background: #4b99ed;
+    color: #fff; }
 
 /* Login page */
 .login_wrapper {
@@ -28,7 +28,18 @@ body {
   align-items: center;
   justify-content: center; }
   .login_wrapper .login_inner {
-    width: 400px; }
+    width: 460px;
+    padding: 30px; }
+  .login_wrapper .login_logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    .login_wrapper .login_logo img {
+      width: 100px;
+      height: auto; }
+    .login_wrapper .login_logo h1 {
+      text-transform: uppercase;
+      color: #b7b7b7; }
   .login_wrapper .form_login > div {
     margin: 30px 0; }
   .login_wrapper .form_login label {
@@ -39,3 +50,15 @@ body {
     border-radius: 4px;
     padding: 15px;
     width: 100%; }
+
+footer.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  padding: 10px 30px;
+  color: #b7b7b7;
+  font-size: 0.8rem;
+  text-align: right;
+  letter-spacing: 1px; }
