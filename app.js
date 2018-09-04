@@ -6,6 +6,9 @@ var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var indexRouter = require('./app_server/routes/index');
 
+// connect to the database
+var db = require('./app_server/models/db');
+
 var app = express();
 
 // view engine setup
