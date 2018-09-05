@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 var dbURI =
   'mongodb://ittweb:hSp-2n6-gsJ@ds143242.mlab.com:43242/heroku_nsxw51lr';
@@ -44,3 +45,18 @@ process.on('SIGTERM', () => {
     process.exit(0);
   });
 });
+
+const exerciseSchema = new Schema({
+  name: String,
+  description: String,
+  set: Number,
+  repsOrTime: Number,
+})
+
+var exercise = mongoose.model('exercise', exerciseSchema);
+
+var exercises = new exercise();
+exercises.name = 'Situps';
+exercises.description = 'Lie flat on your back and without lifting your legs lift you chest up and touch your knees';
+exercises.set = 10;
+exercises.repsOrTime = 3;
