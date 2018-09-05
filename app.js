@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import sassMiddleware from 'node-sass-middleware';
 import indexRouter from './app_server/routes/index';
+import mongoose from 'mongoose';
 
 // connect to the database
 import db from './app_server/utils/db';
@@ -45,5 +46,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Use mongoose promises
+mongoose.Promise = Promise;
 
 export default app;

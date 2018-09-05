@@ -2,15 +2,17 @@ import express from 'express';
 var router = express.Router();
 
 // import controlers
-import { loginController, indexController } from '../controllers/main';
+import workoutController from '../controllers/workoutController';
 
 /**
  * Router
  * map every request to controller
  */
-router.get('/', indexController);
+router.get('/', workoutController.list);
 
-router.get('/login', loginController);
+router.get('/workout/:id', workoutController.detail);
+
+// router.get('/login', loginController);
 
 // export the router
 export default router;

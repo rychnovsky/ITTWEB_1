@@ -12,7 +12,7 @@ let WorkoutProgramModel = mongoose.model(
 );
 
 WorkoutProgramModel.findAll = () => {
-  return WorkoutProgramModel.find({});
+  return WorkoutProgramModel.find();
 };
 
 WorkoutProgramModel.create = programToAdd => {
