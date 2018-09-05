@@ -3,6 +3,8 @@
  */
 import WorkoutProgram from '../models/workoutProgram';
 
+// WorkoutProgram.create(new WorkoutProgram({ name: 'Lazy day' }));
+
 // Page variables
 const pageTitle = 'Workout app';
 
@@ -10,7 +12,7 @@ let workoutController = {};
 
 // show list of all workout programs
 workoutController.list = (req, res) => {
-  WorkoutProgram.findAll().then(workouts =>
+  WorkoutProgram.find().then(workouts =>
     res.render('workoutList', { pageTitle, workouts }),
   );
 };
@@ -18,7 +20,7 @@ workoutController.list = (req, res) => {
 // show detail of one workout program
 workoutController.detail = (req, res) => {
   const workoutId = req.params.id;
-  WorkoutProgram.findAll().then(workouts =>
+  WorkoutProgram.findById(workoutId).then(workouts =>
     res.render('workoutDetail', {
       pageTitle: `Workout detail - id: ${workoutId}`,
       workouts,
