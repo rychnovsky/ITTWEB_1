@@ -1,10 +1,27 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 //Define a schema
 const WorkoutProgramSchema = new Schema({
-  name: Schema.ObjectId,
+  name: String,
 });
 
+let WorkoutProgramModel = mongoose.model(
+  'WorkoutProgram',
+  WorkoutProgramSchema,
+);
+
+WorkoutProgramModel.findAll = () => {
+  return WorkoutProgramModel.find({});
+};
+
+WorkoutProgramModel.create = programToAdd => {
+  return programToAdd.save();
+};
+
+WorkoutProgramModel.remove = programName => {
+  return WorkoutProgramModel.remove({ name: programName });
+};
+
 //Export model
-module.exports = mongoose.model('WorkoutProgram', WorkoutProgramSchema);
+export default WorkoutProgramModel;

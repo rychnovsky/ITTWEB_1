@@ -1,11 +1,15 @@
-/* GET home page */
+/**
+ * Main controller
+ */
 
 const title = 'Workout app';
 
-module.exports.index = function(req, res) {
+/* GET home page */
+export function indexController(req, res) {
   res.render('index', { title });
-};
+}
 
-module.exports.login = function(req, res) {
+/* GET login page */
+export function loginController(req, res) {
   res.render('login', { title });
-};
+}

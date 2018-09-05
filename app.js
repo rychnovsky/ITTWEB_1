@@ -1,13 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
-var indexRouter = require('./app_server/routes/index');
+import express from 'express';
+import createError from 'http-errors';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import sassMiddleware from 'node-sass-middleware';
+import indexRouter from './app_server/routes/index';
 
 // connect to the database
-var db = require('./app_server/models/db');
+import db from './app_server/utils/db';
 
 var app = express();
 
@@ -46,4 +46,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;

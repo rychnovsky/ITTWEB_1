@@ -1,7 +1,9 @@
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import config from '../config/config';
 
-var dbURI =
-  'mongodb://ittweb:hSp-2n6-gsJ@ds143242.mlab.com:43242/heroku_nsxw51lr';
+const dbURI = `mongodb://${config.dbUser}:${
+  config.dbPass
+}@${dbHost}:${dbPort}/${dbName}`;
 
 mongoose.connect(
   dbURI,

@@ -1,10 +1,16 @@
-var express = require('express');
+import express from 'express';
 var router = express.Router();
-const ctrlMain = require('../controllers/main');
 
-/* GET home page. */
-router.get('/', ctrlMain.index);
+// import controlers
+import { indexController, indexController } from '../controllers/main';
 
-router.get('/login', ctrlMain.login);
+/**
+ * Router
+ * map every request to controller
+ */
+router.get('/', indexController);
 
-module.exports = router;
+router.get('/login', indexController);
+
+// export the router
+export default router;

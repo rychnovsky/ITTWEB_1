@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 //Define a schema
@@ -10,4 +10,4 @@ const ExcerciseSchema = new Schema({
 });
 
 //Export model
-module.exports = mongoose.model('Excercise', ExcerciseSchema);
+export default mongoose.model('Excercise', ExcerciseSchema);
