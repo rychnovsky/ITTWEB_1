@@ -1,10 +1,18 @@
-var express = require('express');
+import express from 'express';
 var router = express.Router();
-const ctrlMain = require('../controllers/main');
 
-/* GET home page. */
-router.get('/', ctrlMain.index);
+// import controlers
+import workoutController from '../controllers/workoutController';
 
-router.get('/login', ctrlMain.login);
+/**
+ * Router
+ * map every request to controller
+ */
+router.get('/', workoutController.list);
 
-module.exports = router;
+router.get('/workout/:id', workoutController.detail);
+
+// router.get('/login', loginController);
+
+// export the router
+export default router;
