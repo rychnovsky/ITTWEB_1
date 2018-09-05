@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 import config from '../config/config';
 
-const dbURI = `mongodb://${config.dbUser}:${
-  config.dbPass
-}@${dbHost}:${dbPort}/${dbName}`;
+const dbURI = `mongodb://${config.dbUser}:${config.dbPass}@${config.dbHost}:${
+  config.dbPort
+}/${config.dbName}`;
 
 mongoose.connect(
   dbURI,

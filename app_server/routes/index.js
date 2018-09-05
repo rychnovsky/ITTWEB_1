@@ -2,7 +2,7 @@ import express from 'express';
 var router = express.Router();
 
 // import controlers
-import { indexController, indexController } from '../controllers/main';
+import { loginController, indexController } from '../controllers/main';
 
 /**
  * Router
@@ -10,7 +10,7 @@ import { indexController, indexController } from '../controllers/main';
  */
 router.get('/', indexController);
 
-router.get('/login', indexController);
+router.get('/login', loginController);
 
 // export the router
 export default router;
