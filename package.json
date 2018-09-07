@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "babel-node": "babel-node --presets=env ./bin/www",
-    "start": "nodemon --exec npm run babel-node"
+    "start": "babel-node --presets=env ./bin/www",
+    "nodemon": "nodemon --exec npm run babel-node"
   },
   "babel": {
     "presets": [
