@@ -1,4 +1,4 @@
-extends layout
+extends layout.pug
 
 block content
   h1= pageTitle
@@ -7,3 +7,11 @@ block content
   p TODO: here will be a list of workout programs
 
   p= workouts
+
+    p Add New Workout
+  form(action='/', method='POST')
+    p
+      | Workout Name:
+      input(name='workout_name', id='workout_name', value = '', type='text')
+    input(value='Submit', type='submit')
+    input(reset='Reset' type='reset')

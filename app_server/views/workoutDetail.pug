@@ -1,7 +1,21 @@
-extends layout
+extends workoutList.pug
 
 block content
   h1= pageTitle
   p Welcome to: #{pageTitle}
   br
-  p TODO: here will be a detail of single workout
+  p Add New Exercise
+
+  p Add New Exercise
+  form(action='/', method='POST')
+    p
+      | Exercise Name:
+      input(name='exercise_name', id='exercise_name', value = '', type='text')
+      | Description: 
+      input(name='description', id='description', value='', type='text')
+      | Number Per Set: 
+      input(name='num_per_set', id='num_per_set', value='', type='text')
+      | Number of Sets:
+      input(name='num_sets', id='num_sets', value='', type='text')
+    input(value='Submit', type='submit')
+    input(reset='Reset' type='reset')
