@@ -3,13 +3,6 @@
  */
 import WorkoutProgram from '../models/workoutProgram';
 
-
-// WorkoutProgram.create(new WorkoutProgram({ name: 'Lazy day' }));
-
-var w = new WorkoutProgram({name : "Test Day"});
-w.save().then(
-  console.log("saved")
-)
 // Page variables
 const pageTitle = 'Workout app';
 
@@ -33,7 +26,7 @@ workoutController.detail = (req, res) => {
   );
 };
 
-// get new workout from form
+// get new excercise from form
 workoutController.addNewExercise = (req, res) =>{
   console.log(req)
   req = {
@@ -45,10 +38,15 @@ workoutController.addNewExercise = (req, res) =>{
   WorkoutProgram.create(new WorkoutProgram(req));
 }
 
+// add new workout from form
 workoutController.addNewWorkout = (req, res) =>{
   console.log(req);
   req = {
     name : req.body.workout_name
   }
+  var w = new WorkoutProgram(req);
+  w.save().then(
+    console.log("saved")
+  )
 }
 export default workoutController;
