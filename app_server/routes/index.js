@@ -12,6 +12,10 @@ router.get('/', workoutController.list);
 
 router.get('/workout/:id', workoutController.detail);
 
+router.post('/', workoutController.addNewWorkout);
+
+router.post('/', workoutController.addNewExercise);
+
 // router.get('/login', loginController);
 
 // export the router

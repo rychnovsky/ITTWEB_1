@@ -17,5 +17,8 @@ let WorkoutProgramModel = mongoose.model(
   WorkoutProgramSchema,
 );
 
+
+
 //Export model
 export default WorkoutProgramModel;
+
