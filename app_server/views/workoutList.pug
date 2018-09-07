@@ -4,14 +4,22 @@ block content
   h1= pageTitle
   p Welcome to: #{pageTitle}
   br
-  p TODO: here will be a list of workout programs
+ 
 
-  p= workouts
+  table
+    each name in workouts
+      tr
+        td=name.name
+  br
+  p TODO Allow excercises to be added to workouts, display those excercises (?)
 
-    p Add New Workout
+  br
+  p Add New Workout
   form(action='/', method='POST')
     p
       | Workout Name:
       input(name='workout_name', id='workout_name', value = '', type='text')
     input(value='Submit', type='submit')
     input(reset='Reset' type='reset')
+
+  p TODO On submit, webpage stuck constantly loading after information is submitted to database
