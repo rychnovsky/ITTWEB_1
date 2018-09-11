@@ -1,6 +1,9 @@
 extends workoutList.pug
 
 block content
+
+  a(href="/") go home
+
   table
     th 
       td Name
@@ -24,8 +27,8 @@ block content
       | Description: 
       input(name='description', id='description', value='', type='text')
       | Number Per Set: 
-      input(name='num_per_set', id='num_per_set', value='', type='text')
+      input(name='num_per_set', id='num_per_set', value='', type='number' min=0 max=1000)
       | Number of Sets:
-      input(name='num_sets', id='num_sets', value='', type='text')
+      input(name='num_sets', id='num_sets', value='', type='number' min=0 max=1000)
     input(value='Submit', type='submit')
     input(reset='Reset' type='reset')
