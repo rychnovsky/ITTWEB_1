@@ -35,7 +35,8 @@ workoutController.addNewExercise = (req, res) =>{
     set : req.body.num_per_set,
     duration : req.body.num_sets
   };
-  WorkoutProgram.create(new WorkoutProgram(req));
+  var e = new WorkoutProgram(req);
+  e.save.then(console.log("saved excercise"))
 }
 
 // add new workout from form
@@ -45,8 +46,6 @@ workoutController.addNewWorkout = (req, res) =>{
     name : req.body.workout_name
   }
   var w = new WorkoutProgram(req);
-  w.save().then(
-    console.log("saved")
-  )
+  w.save().then(console.log("saved workout"))
 }
 export default workoutController;

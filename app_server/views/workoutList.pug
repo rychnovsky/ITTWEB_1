@@ -10,6 +10,14 @@ block content
     each workout in workouts
       tr
         td=workout.name
+      each excercise in workout.excercises
+        tr
+          td=excercise.name
+          td=excercises.description
+          td=excercises.set
+          td=excercises.duration
+
+      
   br
   p TODO Allow excercises to be added to workouts, display those excercises (?)
 
