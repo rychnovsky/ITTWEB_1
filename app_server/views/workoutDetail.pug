@@ -1,12 +1,23 @@
 extends workoutList.pug
 
 block content
-  h1= pageTitle
-  p Welcome to: #{pageTitle}
-  br
+  table
+    th 
+      td Name
+      td Description
+      td Number per set
+      td Number of sets
+  each excercise in workouts.excercises
+        tr
+          td=excercise.name
+          td=excercise.description
+          td=excercise.set
+          td=excercise.duration
 
+  br 
+  
   p Add New Exercise
-  form(action='/', method='POST')
+  form(action='/workout/' + workoutId, method='POST')
     p
       | Exercise Name:
       input(name='exercise_name', id='exercise_name', value = '', type='text')

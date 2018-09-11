@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //Define a schema
 const ExcerciseSchema = new Schema({
-  name: Schema.ObjectId,
+  name: String,
   description: String,
   set: Number,
   duration: Number,
