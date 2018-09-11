@@ -29,32 +29,32 @@ workoutController.detail = (req, res) => {
 };
 
 // get new excercise from form
-workoutController.addNewExercise = (req, res) =>{
-  console.log(req)
+workoutController.addNewExercise = (req, res) => {
   const workoutId = req.params.id;
-  req = {
-    name : req.body.exercise_name,
-    description : req.body.description,
-    set : req.body.num_per_set,
-    duration : req.body.num_sets
-  };
-  var newExcercise = new ExcerciseProgram(req);
-  WorkoutProgram.findByIdAndUpdate(workoutId, {$addToSet: {excercises : newExcercise}}).then(() =>{
-    res.redirect('/workout/' + workoutId)
-    console.log("saved excercise")})
-}
+  const newExcercise = new ExcerciseProgram({
+    name: req.body.exercise_name,
+    description: req.body.description,
+    set: req.body.num_per_set,
+    duration: req.body.num_sets,
+  });
+
+  WorkoutProgram.findByIdAndUpdate(workoutId, {
+    $addToSet: { excercises: newExcercise },
+  }).then(() => {
+    res.redirect(`/workout/${workoutId}`);
+    console.log('saved excercise');
+  });
+};
 
 // add new workout from form
-workoutController.addNewWorkout = (req, res) =>{
-  console.log(req);
-  req = {
-    name : req.body.workout_name
-  }
-  var w = new WorkoutProgram(req);
-  
-  w.save().then(() =>{
-    res.redirect('/')
-    console.log("saved workout")})
+workoutController.addNewWorkout = (req, res) => {
+  const newWorkout = new WorkoutProgram({
+    name: req.body.workout_name,
+  });
+  newWorkout.save().then(() => {
+    res.redirect('/');
+    console.log('saved workout');
+  });
+};
 
-}
 export default workoutController;
