@@ -14,7 +14,7 @@ router.get('/workout/:id', workoutController.detail);
 
 router.post('/', workoutController.addNewWorkout);
 
-router.post('/', workoutController.addNewExercise);
+router.post('/workout/:id', workoutController.addNewExercise);
 
 // router.get('/login', loginController);
 

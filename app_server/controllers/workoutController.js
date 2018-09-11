@@ -2,6 +2,7 @@
  * Workout controller
  */
 import WorkoutProgram from '../models/workoutProgram';
+import ExcerciseProgram from '../models/excercise';
 
 // Page variables
 const pageTitle = 'Workout app';
@@ -22,6 +23,7 @@ workoutController.detail = (req, res) => {
     res.render('workoutDetail', {
       pageTitle: `Workout detail - id: ${workoutId}`,
       workouts,
+      workoutId,
     }),
   );
 };
@@ -29,14 +31,17 @@ workoutController.detail = (req, res) => {
 // get new excercise from form
 workoutController.addNewExercise = (req, res) =>{
   console.log(req)
+  const workoutId = req.params.id;
   req = {
     name : req.body.exercise_name,
     description : req.body.description,
     set : req.body.num_per_set,
     duration : req.body.num_sets
   };
-  var e = new WorkoutProgram(req);
-  e.save.then(console.log("saved excercise"))
+  var newExcercise = new ExcerciseProgram(req);
+  WorkoutProgram.findByIdAndUpdate(workoutId, {$addToSet: {excercises : newExcercise}}).then(() =>{
+    res.redirect('/workout/' + workoutId)
+    console.log("saved excercise")})
 }
 
 // add new workout from form
@@ -46,6 +51,10 @@ workoutController.addNewWorkout = (req, res) =>{
     name : req.body.workout_name
   }
   var w = new WorkoutProgram(req);
-  w.save().then(console.log("saved workout"))
+  
+  w.save().then(() =>{
+    res.redirect('/')
+    console.log("saved workout")})
+
 }
 export default workoutController;
