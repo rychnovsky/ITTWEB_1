@@ -9,13 +9,8 @@ block content
   table
     each workout in workouts
       tr
-        td=workout.name
-      each excercise in workout.excercises
-        tr
-          td=excercise.name
-          td=excercise.description
-          td=excercise.set
-          td=excercise.duration
+        td
+          a(href='/workout/' + workout.id)=workout.name
 
       
   br
