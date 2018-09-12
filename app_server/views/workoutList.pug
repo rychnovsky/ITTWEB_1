@@ -1,25 +1,34 @@
 extends layout.pug
 
 block content
-  h1= pageTitle
-  p Welcome to: #{pageTitle}
-  br
- 
+  
+    header#main-header
+      div.container  
+        h1= pageTitle
+        
+    #welcome
+      div.container
+        p Welcome to: #{pageTitle}
+        br
 
-  table
-    each workout in workouts
-      tr
-        td
-          a(href='/workout/' + workout.id)=workout.name
-
+    div.container
+      table
       
-  br
+        each workout in workouts
+          tr
+            td
+              a(href='/workout/' + workout.id)=workout.name
 
-  br
-  p Add New Workout
-  form(action='/', method='POST')
-    p
-      | Workout Name:
-      input(name='workout_name', id='workout_name', value = '', type='text')
-    input(value='Submit', type='submit')
-    input(reset='Reset' type='reset')
+        
+    br
+
+    br
+    div.container
+      p Add New Workout
+        
+          form(action='/', method='POST')
+            p
+              | Workout Name:
+              input(name='workout_name', id='workout_name', value = '', type='text')
+            input(id='submit',value='Submit', type='submit')
+            input(id='reset',reset='Reset' type='reset') 

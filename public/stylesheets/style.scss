@@ -8,9 +8,71 @@ $theme-color: #4b99ed;
 
 /* General styles */
 body {
-  font: 14px 'Poppins', 'Lucida Grande', Helvetica, Arial, sans-serif;
-  margin: 0;
+  font: 16px 'Poppins', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  margin: 0;  
+  background-color:#f0f0f0;
+  //color:#505050
+  line-height:1-6em;
 }
+
+.container{
+  
+  padding-left: 5%;
+  padding-right: 5%;
+  overflow:hidden;
+}
+
+#main-header{
+  background-color: #04688C;
+  color:#fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#welcome{
+  background-color: #FEB819;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#workout_name{
+  display: block
+}
+
+#submit{
+  background-color: #000;
+  color:#fff;
+  padding: 15px 20px;
+  border: none;
+  font-size: 17px;
+  margin-right: 20px;
+}
+
+#submit:hover{
+  background: rgb(95, 3, 3);
+}
+
+#reset{
+  background-color: #000;
+  color:#fff;
+  padding: 15px 20px;
+  border: none;
+  font-size: 17px;
+}
+
+#reset:hover{
+  background: rgb(95, 3, 3);
+}
+
+
+
+
+
+
+
+
+
+
 
 /* Buttons */
 .button {
