@@ -1,34 +1,36 @@
 extends workoutList.pug
 
-block content
-
-  a(href="/") go home
-
-  table
-    th 
-      td Name
-      td Description
-      td Number per set
-      td Number of sets
-  each excercise in workouts.excercises
+block content 
+  .background
+  
+  
+    a(href="/") go home
+    table
+      th 
+          td Name
+          td Description
+          td Number per set
+          td Number of sets
+      each excercise in workouts.excercises
         tr
           td=excercise.name
           td=excercise.description
           td=excercise.set
           td=excercise.duration
 
-  br 
-  
-  p Add New Exercise
-  form(action='/workout/' + workoutId, method='POST')
-    p
-      | Exercise Name:
-      input(name='exercise_name', id='exercise_name', value = '', type='text')
-      | Description: 
-      input(name='description', id='description', value='', type='text')
-      | Number Per Set: 
-      input(name='num_per_set', id='num_per_set', value='', type='number' min=0 max=1000)
-      | Number of Sets:
-      input(name='num_sets', id='num_sets', value='', type='number' min=0 max=1000)
-    input(value='Submit', type='submit')
-    input(reset='Reset' type='reset')
+    br 
+    
+    p Add New Exercise
+    form(action='/workout/' + workoutId, method='POST')
+      p
+        form_group
+          | Exercise Name:
+          input(name='exercise_name', id='exercise_name', value = '', type='text', class='form_group')
+          | Description: 
+          input(name='description', id='description', value='', type='text', class='form_group')
+          | Number Per Set: 
+          input(name='num_per_set', id='num_per_set', value='', type='number' min=0 max=1000, class='form_group')
+          | Number of Sets:
+          input(name='num_sets', id='num_sets', value='', type='number' min=0 max=1000, class='form_group')
+      input(id='submit', value='Submit', type='submit')
+      input(id='reset', reset='Reset' type='reset')
