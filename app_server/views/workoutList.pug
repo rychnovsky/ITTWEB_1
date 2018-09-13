@@ -1,17 +1,8 @@
 extends layout.pug
 
 block content
-  
-    header#main-header
-      div.container  
-        h1= pageTitle
-        
-    #welcome
-      div.container
-        p #{pageTitle}
-        br
 
-    div.container
+    div.container.main-content
       table
       
         each workout in workouts
@@ -19,16 +10,13 @@ block content
             td
               a(href='/workout/' + workout.id)=workout.name
 
-        
-    br
+      br
+      br
 
-    br
-    div.container
-      p Add New Workout
+      h2 Add New Workout
         
-          form(action='/', method='POST')
-            p
-              | Workout Name:
-              input(name='workout_name', id='workout_name', value = '', type='text')
-            input(id='submit',value='Submit', type='submit')
-            input(id='reset',reset='Reset' type='reset') 
+      form(action='/', method='POST')
+        label(for="workout_name") Workout Name:
+        input(name='workout_name', id='workout_name', value = '', type='text', required)
+        input(id='submit',value='Submit', type='submit')
+        input(id='reset',reset='Reset' type='reset') 

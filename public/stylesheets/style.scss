@@ -9,93 +9,109 @@ $theme-color: #4b99ed;
 /* General styles */
 body {
   font: 16px 'Poppins', 'Lucida Grande', Helvetica, Arial, sans-serif;
-  margin: 0;  
-  background-color:#f0f0f0;
+  margin: 0;
+  background-color: #f0f0f0;
   //color:#505050
-  line-height:1-6em;
+  line-height: 1-6em;
 }
 
-.container{
-  
+.container {
   padding-left: 5%;
   padding-right: 5%;
-  overflow:hidden;
+  overflow: hidden;
 }
 
-.background{
-  background-image: url("/images/morning_motivation__medium_4x3.jpg");
-  padding-left: 5%;
-  padding-right: 5%;
-  overflow:hidden; 
+.main-content {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  table {
+    width: 100%;
+    thead tr {
+      background: $theme-color;
+      color: #fff;
+    }
+    tbody tr:hover {
+      background: #fff;
+    }
+    a {
+      display: block;
+    }
+  }
 }
 
-#main-header{
-  background-color: #04688C;
-  color:#fff;
+.background {
+  // background-image: url('/images/morning_motivation__medium_4x3.jpg');
+}
+
+#main-header {
+  background-color: $theme-color;
+  color: #fff;
   text-align: center;
   text-transform: uppercase;
 }
 
-#welcome{
-  background-color: #FEB819;
+#welcome {
+  background-color: #feb819;
   font-weight: bold;
   font-style: italic;
 }
 
-#workout_name{
-  display: block
+#workout_name {
+  display: block;
 }
 
-#submit{
+#submit {
   background-color: #000;
-  color:#fff;
+  color: #fff;
   padding: 15px 20px;
   border: none;
   font-size: 17px;
   margin-right: 20px;
+  &:hover {
+    background: #14b53e;
+  }
 }
 
-#submit:hover{
-  background: rgba(255, 0, 0, 0.897);
+input {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 5px 10px;
+  line-height: 20px;
+  &[type='text'] {
+    margin-bottom: 10px;
+    line-height: 30px;
+    min-width: 300px;
+  }
 }
 
-#reset{
-  background-color: #000;
-  color:#fff;
+#reset {
+  background-color: #ccc;
+  color: #fff;
   padding: 15px 20px;
   border: none;
   font-size: 17px;
+  &:hover {
+    background: rgba(255, 0, 0, 0.897);
+  }
 }
 
-#reset:hover{
-  background: rgba(255, 0, 0, 0.897);
-}
-
-.form_group{
+.form_group {
   display: block;
 }
 
-table, th, td{
+table,
+th,
+td {
   border: 1px solid;
   border-collapse: collapse;
   opacity: 0.95;
 }
 
-th, td{
+th,
+td {
   padding: 10px;
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* Buttons */
 .button {

@@ -1,41 +1,40 @@
 extends workoutList.pug
 
 block content 
-  .background
   
-  
+  div.container.main-content.background
+
     a(href="/") Back to Workouts
 
-    p=workouts.name
-
-    div
+    h1= workout.name
 
     table
-      th Name
-      th Description
-      th Number Per Set
-      th Number of Sets
-      
-      each excercise in workouts.excercises
+      thead
         tr
-          td=excercise.name
-          td=excercise.description
-          td=excercise.set
-          td=excercise.duration
+          th Name
+          th Description
+          th Number Per Set
+          th Number of Sets
+      tbody
+        each excercise in workout.excercises
+          tr
+            td=excercise.name
+            td=excercise.description
+            td=excercise.set
+            td=excercise.duration
 
     br 
     
-    p Add New Exercise
+    h2 Add New Exercise
     form(action='/workout/' + workoutId, method='POST')
-      p
-        form_group
-          | Exercise Name:
-          input(name='exercise_name', id='exercise_name', value = '', type='text', class='form_group')
-          | Description: 
-          input(name='description', id='description', value='', type='text', class='form_group')
-          | Number Per Set: 
-          input(name='num_per_set', id='num_per_set', value='', type='number' min=0 max=1000, class='form_group')
-          | Number of Sets:
-          input(name='num_sets', id='num_sets', value='', type='number' min=0 max=1000, class='form_group')
+      label(for="exercise_name") Exercise Name:
+      input(name='exercise_name', id='exercise_name', value = '', type='text', class='form_group', required)
+      label(for="description") Description: 
+      input(name='description', id='description', value='', type='text', class='form_group', required)
+      label(for="num_per_set") Number Per Set: 
+      input(name='num_per_set', id='num_per_set', value='', type='number' min=0 max=1000, class='form_group', required)
+      label(for="num_sets") Number of Sets:
+      input(name='num_sets', id='num_sets', value='', type='number' min=0 max=1000, class='form_group', required)
+      br
       input(id='submit', value='Submit', type='submit')
       input(id='reset', reset='Reset' type='reset')

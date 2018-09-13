@@ -5,24 +5,29 @@ import WorkoutProgram from '../models/workoutProgram';
 import ExcerciseProgram from '../models/excercise';
 
 // Page variables
-const pageTitle = 'Workout App';
+const siteTitle = 'Workout App';
 
 let workoutController = {};
 
 // show list of all workout programs
 workoutController.list = (req, res) => {
   WorkoutProgram.find().then(workouts =>
-    res.render('workoutList', { pageTitle, workouts }),
+    res.render('workoutList', {
+      siteTitle,
+      pageTitle: 'List of workouts',
+      workouts,
+    }),
   );
 };
 
 // show detail of one workout program
 workoutController.detail = (req, res) => {
   const workoutId = req.params.id;
-  WorkoutProgram.findById(workoutId).then(workouts =>
+  WorkoutProgram.findById(workoutId).then(workout =>
     res.render('workoutDetail', {
-      pageTitle: `Workout detail - id: ${workoutId}`,
-      workouts,
+      siteTitle,
+      pageTitle: `Workout Detail`,
+      workout,
       workoutId,
     }),
   );
@@ -48,6 +53,10 @@ workoutController.addNewExercise = (req, res) => {
 
 // add new workout from form
 workoutController.addNewWorkout = (req, res) => {
+  if (!req.body.workout_name || req.body.workout_name === '') {
+    res.redirect('/');
+    return;
+  }
   const newWorkout = new WorkoutProgram({
     name: req.body.workout_name,
   });
