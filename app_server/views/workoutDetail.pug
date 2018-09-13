@@ -4,13 +4,18 @@ block content
   .background
   
   
-    a(href="/") go home
+    a(href="/") Back to Workouts
+
+    p=workouts.name
+
+    div
+
     table
-      th 
-          td Name
-          td Description
-          td Number per set
-          td Number of sets
+      th Name
+      th Description
+      th Number Per Set
+      th Number of Sets
+      
       each excercise in workouts.excercises
         tr
           td=excercise.name

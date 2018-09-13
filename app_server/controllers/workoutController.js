@@ -5,7 +5,7 @@ import WorkoutProgram from '../models/workoutProgram';
 import ExcerciseProgram from '../models/excercise';
 
 // Page variables
-const pageTitle = 'Workout app';
+const pageTitle = 'Workout App';
 
 let workoutController = {};
 
